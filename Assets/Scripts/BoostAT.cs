@@ -7,7 +7,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class BoostAT : ActionTask {
 
-		private Blackboard agentBlackboard;
+		public BBParameter<float> detectionRadius;
+		public float radiusIncrement;
+
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -19,7 +21,8 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			agentBlackboard = agent.GetComponent<Blackboard>();
+			detectionRadius.value += radiusIncrement;
+			EndAction(true);
 		}
 
 		//Called once per frame while the action is active.

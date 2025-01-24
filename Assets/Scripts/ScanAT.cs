@@ -9,7 +9,8 @@ namespace NodeCanvas.Tasks.Actions {
 	public class ScanAT : ActionTask {
 		public Color scanColour;
 		public int numberOfScanCirclePoints;
-        public float detectionRadius;
+        public BBParameter<float> detectionRadius;
+		public BBParameter<Transform> targetTransform;
 		public LayerMask LightMachineLayerMask;
 
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -27,9 +28,9 @@ namespace NodeCanvas.Tasks.Actions {
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 
-			DrawCircle(agent.transform.position, detectionRadius, scanColour, numberOfScanCirclePoints);
+			DrawCircle(agent.transform.position, detectionRadius.value, scanColour, numberOfScanCirclePoints);
 
-			Collider[] detectedColliders = Physics.OverlapSphere(agent.transform.position, detectionRadius, LightMachineLayerMask);
+			Collider[] detectedColliders = Physics.OverlapSphere(agent.transform.position, detectionRadius.value, LightMachineLayerMask);
 
 
             foreach (Collider detectedCollider in detectedColliders)
@@ -46,6 +47,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 				if(repairValue == 0)
 				{
+					targetTransform.value = lightMachineBlackboard.GetVariableValue<Transform>("workpad");
                     EndAction(true);
 				}
 

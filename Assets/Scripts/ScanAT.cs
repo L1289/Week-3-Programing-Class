@@ -25,11 +25,26 @@ namespace NodeCanvas.Tasks.Actions {
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 
+			DrawCircle(agent.transform.position, detectionRadius, scanColour, numberOfScanCirclePoints);
+
 			Collider[] detectedColliders = Physics.OverlapSphere(agent.transform.position, detectionRadius, LightMachineLayerMask);
 
 			foreach(Collider detectedCollider in detectedColliders)
 			{
+				Blackboard lightMachineBlackboard = detectedCollider.GetComponentInParent<Blackboard>();
 
+				float repairValue = lightMachineBlackboard.GetVariableValue<float>("repairValue");
+
+				if(lightMachineBlackboard == null)
+				{
+					Debug.LogError("ScanAT Error - could not find light machine's blackboard");
+					return;
+				}
+
+				if(repairValue == 0)
+				{
+					EndAction(true);
+				}
 
 
 			}

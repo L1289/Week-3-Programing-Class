@@ -7,10 +7,12 @@ namespace NodeCanvas.Tasks.Actions {
 	public class ScanAT : ActionTask {
 		public Color scanColour;
 		public int numberOfScanCirclePoints;
+        public float detectionRadius;
+		public LayerMask LightMachineLayerMask;
 
-		//Use for initialization. This is called only once in the lifetime of the task.
-		//Return null if init was successfull. Return an error string otherwise
-		protected override string OnInit() {
+        //Use for initialization. This is called only once in the lifetime of the task.
+        //Return null if init was successfull. Return an error string otherwise
+        protected override string OnInit() {
 			return null;
 		}
 
@@ -22,7 +24,15 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			
+
+			Collider[] detectedColliders = Physics.OverlapSphere(agent.transform.position, detectionRadius, LightMachineLayerMask);
+
+			foreach(Collider detectedCollider in detectedColliders)
+			{
+
+
+
+			}
 		}
 
 		private void DrawCircle(Vector3 center, float radius, Color colour, int numberOfPoints)

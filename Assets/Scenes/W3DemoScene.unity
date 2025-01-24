@@ -480,13 +480,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"scanColour":{"g":1.0,"b":0.02703118,"a":1.0},"numberOfScanCirclePoints":8,"$type":"NodeCanvas.Tasks.Actions.ScanAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Scan","_position":{"x":-775.6389,"y":-71.09556},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"scanColour":{"g":1.0,"b":0.02703118,"a":1.0},"numberOfScanCirclePoints":8,"detectionRadius":3.0,"LightMachineLayerMask":{"value":64},"$type":"NodeCanvas.Tasks.Actions.ScanAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Scan","_position":{"x":-913.6389,"y":-45.09555},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"$type":"NodeCanvas.Tasks.Actions.BoostAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Boost","_position":{"x":-789.3905,"y":-193.7832},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.31
     _category: 
     _comments: 
-    _translation: {x: 1257, y: 365}
+    _translation: {x: 1242.3905, y: 364.78323}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0

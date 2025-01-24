@@ -1,10 +1,14 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using Unity.VisualScripting;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
 	public class BoostAT : ActionTask {
+
+		private Blackboard agentBlackboard;
+
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
@@ -15,7 +19,7 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			EndAction(true);
+			agentBlackboard = agent.GetComponent<Blackboard>();
 		}
 
 		//Called once per frame while the action is active.

@@ -1,5 +1,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
@@ -29,7 +31,8 @@ namespace NodeCanvas.Tasks.Actions {
 
 			Collider[] detectedColliders = Physics.OverlapSphere(agent.transform.position, detectionRadius, LightMachineLayerMask);
 
-			foreach(Collider detectedCollider in detectedColliders)
+
+            foreach (Collider detectedCollider in detectedColliders)
 			{
 				Blackboard lightMachineBlackboard = detectedCollider.GetComponentInParent<Blackboard>();
 
@@ -43,11 +46,12 @@ namespace NodeCanvas.Tasks.Actions {
 
 				if(repairValue == 0)
 				{
-					EndAction(true);
+                    EndAction(true);
 				}
 
 
 			}
+
 		}
 
 		private void DrawCircle(Vector3 center, float radius, Color colour, int numberOfPoints)
